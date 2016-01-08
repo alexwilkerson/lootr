@@ -7,3 +7,9 @@
 *.DS_Store
 *.swp
 *.out
+
+# virtualenv
+.Python
+bin
+lib
+include
