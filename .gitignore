@@ -9,7 +9,4 @@
 *.out
 
 # virtualenv
-.Python
-bin
-lib
-include
+env
