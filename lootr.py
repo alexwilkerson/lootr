@@ -73,4 +73,9 @@ def sim(n):
                                                                                                  rar7, rar7/total*100)
     print totalnum
 
-sim(10000)
+def dropLoot():
+    numItems = random.randint(0,3) + random.randint(0,2)
+    for i in range(numItems):
+        print pickRarity()
+
+dropLoot()
