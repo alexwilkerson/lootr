@@ -23,15 +23,15 @@ def pickRarity():
 
     if r < rarityWeight7:
         return 7
-    elif r < rarityWeight6:
+    elif r < rarityWeight6 + rarityWeight7:
         return 6
-    elif r < rarityWeight5:
+    elif r < rarityWeight5 + rarityWeight6 + rarityWeight7:
         return 5
-    elif r < rarityWeight4:
+    elif r < rarityWeight4 + rarityWeight5 + rarityWeight6 + rarityWeight7:
         return 4
-    elif r < rarityWeight3:
+    elif r < rarityWeight3 + rarityWeight4 + rarityWeight5 + rarityWeight6 + rarityWeight7:
         return 3
-    elif r < rarityWeight2:
+    elif r < rarityWeight2 + rarityWeight3 + rarityWeight4 + rarityWeight5 + rarityWeight6 + rarityWeight7:
         return 2
     else:
         return 1
