@@ -11,11 +11,11 @@ class Item(object):
         self.rarity = rarity
 
 def pickRarity():
-    rarityWeight1 = 150
-    rarityWeight2 = 115
-    rarityWeight3 = 55
-    rarityWeight4 = 20
-    rarityWeight5 = 5
+    rarityWeight1 = 250
+    rarityWeight2 = 25
+    rarityWeight3 = 15
+    rarityWeight4 = 6
+    rarityWeight5 = 2
     rarityWeight6 = 0.5
     rarityWeight7 = 0.05
     totalWeight = rarityWeight1 + rarityWeight2 + rarityWeight3 + rarityWeight4 + rarityWeight5 + rarityWeight6 + rarityWeight7
@@ -74,7 +74,7 @@ def sim(n):
     print totalnum
 
 def dropLoot():
-    numItems = random.randint(0,3) + random.randint(0,2)
+    numItems = random.randint(0,2) + random.randint(0,2) + random.randint(0,1)
     for i in range(numItems):
         print pickRarity()
 
