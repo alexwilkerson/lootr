@@ -1,6 +1,6 @@
 from __future__ import division
 
-import random
+import random, sqlite3
 
 class Item(object):
 
@@ -35,6 +35,14 @@ def pickRarity():
         return 2
     else:
         return 1
+
+def getItem(rarity):
+    with sqlite3.connect("lootr.db") as connection:
+        c = connection.cursor()
+        c.execute("SELECT name FROM items WHERE rarity=? ORDER BY RANDOM() LIMIT 1", [rarity])
+        row = c.fetchone()
+
+        return row[0]
 
 def sim(n):
     total = n
@@ -75,7 +83,10 @@ def sim(n):
 
 def dropLoot():
     numItems = random.randint(0,2) + random.randint(0,2) + random.randint(0,1)
-    for i in range(numItems):
-        print pickRarity()
+    if numItems == 0:
+        print "You open the chest to find...nothing."
+    else:
+        for i in range(numItems):
+            print getItem(pickRarity())
 
 dropLoot()
