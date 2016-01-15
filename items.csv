@@ -1,0 +1,55 @@
+NAME,DESCRIPTION,TYPE,QUALITY (1-5),RARITY (1-7),IS_UNIQUE (0/1)
+Stone Wedge,A crudely carved piece of stone.,axe,1,1,0
+Wooden Axe,An axe made of light wood.,axe,1,1,0
+Thwacker,"The Thwacker was once an axe of legend, but became so popular that copies were overproduced and have subsequently become quite worthless.",axe,1,1,0
+Axe of Boring,Handle. Blade.,axe,1,1,0
+Cleaver,A butcher's tool. Feel free to use as a weapon.,axe,1,1,0
+Sword,A sword.,sword,1,1,0
+Giant's File,"Once wielded by a gigantic giant for filing its nails, now a deadly two-handed weapon.",sword,1,1,0
+Training Broadsword,A broadsword that doesn't look like it's quite ready for battle.,sword,1,1,0
+Forced Shortsword,You must use this sword.,sword,1,1,0
+Fiery Sword,An unusable sword that is constantly on fire. Too hot to handle.,sword,1,1,0
+Sneaker,Can be used without being noticed.,dagger,1,1,0
+Buttery Knife,"Smells delicious, but butter could be ancient.",dagger,1,1,0
+Whisperblade,Cheaply made dagger used by teenagers.,dagger,1,1,0
+Slicer,Dagger used to split foes into pieces,dagger,1,1,0
+Lesser Dagger,The absolute worst possible dagger money can buy.,dagger,1,1,0
+Light Wand,"When held, user lights up.",wand,1,1,0
+Wand of Festivities,"While holding this wand, anyone within 10 feet of the user experiences a holiday.",wand,1,2,0
+Stick,A stick or a wand.,wand,1,1,0
+Fantasy Wand,This or your imagination.,wand,1,1,0
+Broken Wand,A wand split into two pieces. It looks quite magical.,wand,1,1,0
+Wandering Staff,Goes where it pleases.,staff,1,1,0
+Cardboard Staff,Probably a child's toy.,staff,1,1,0
+Large Stick,Can be used for walking.,staff,1,1,0
+Staff of Economics,Very hard to sell in the market.,staff,1,1,0
+Unhaunted Cane,Upon first glance it looks to be haunted. But it's definitely not haunted.,staff,1,1,0
+Spoiled Iron Rod,Looks to be a piece of unused iron from an ironsmith.,mace,1,1,0
+Chunk of Material,Ambiguous chunk of material. Could do some damage.,mace,1,1,0
+Morningstar,An acceptable weapon. Good condition.,mace,1,1,0
+Confidence Mallet,It's two-handed and feels huge in your hands.,mace,1,1,0
+Dog Femur,Looks rough.,mace,1,1,0
+Shield of Confidence,You feel invincible!,shield,1,1,0
+Shield of Despair,One of the most effective shields to hold. Unable to carry.,shield,1,1,0
+Square Shield,An ugly square shield. Good enough.,shield,1,1,0
+Block,A block.,shield,1,1,0
+Jelly Shield,"A shield made of jelly. Ineffective, but looks hilarious.",shield,1,1,0
+Lower Healing Potion,A potion known to restore health to your legs.,potion,1,1,0
+Lesser Healing Potion,"Like a regular healing potion, but less effective.",potion,1,1,0
+Lesser Mana Potion,Will give a very slight boost to magical skill.,potion,1,1,0
+Lesser Confidence Potion,"With this, your confidence is boosted by +0.5, which you already know. Don't you?",potion,1,1,0
+Lesser Cotton Potion,Creates a very small piece of cotton.,potion,1,1,0
+Scroll of Suggestion,"Upon opening this scroll, you feel it is very suggestive.",scroll,1,1,0
+Scroll of Suspicion,"You reach down for the scroll and narrow your eyes. Upon second thought, you do not open the scroll.",scroll,1,1,0
+Scroll of Fireball,"If read aloud, a fireball.",scroll,1,1,0
+Scroll of Transubstantiation,"""Aghoula baghoula a warbly woh. Chumba gumba roooooooooooooo."" A cookie falls upon the floor.",scroll,1,1,0
+Scroll of Confidence,You can do it!,scroll,1,1,0
+Shortbow,A very short bow.,bow,1,1,0
+Longbow,A really long bow.,bow,1,1,0
+Wooden Aiming Bow,A typical aiming bow made of wood. Often used for aiming practice.,bow,1,1,0
+Bow of Confidence,"Upon equipping, the user is blinded, but more likely to shoot an arrow.",bow,1,1,0
+Longbow of Latency,Slowing potion fell on a batch of longbows causing them to release arrows two seconds later than a normal longbow.,bow,1,1,0
+Spoon,A spoon.,object,1,1,0
+Fork,A fork.,object,1,1,0
+Knife,A knife.,object,1,1,0
+Rubbing Alcohol,Can be used to rub all over wounds.,object,1,1,0

@@ -58,10 +58,12 @@ def pickRarity():
         return 1
 
 def getItem(rarity):
-    cur = g.db.execute("SELECT name FROM items WHERE rarity=? ORDER BY RANDOM() LIMIT 1", [rarity])
+    cur = g.db.execute("SELECT id, name FROM items WHERE rarity=? ORDER BY RANDOM() LIMIT 1", [rarity])
     row = cur.fetchone()
 
-    return row[0]
+    item = dict(idNum=row[0], name=row[1])
+
+    return item
 
 def sim(n):
     total = n
@@ -108,8 +110,18 @@ def dropLoot():
     else:
         loot = ""
         for i in range(numItems):
-            loot += getItem(pickRarity()) + "<br />"
+            newItem = getItem(pickRarity())
+            loot += "<a href=/item/" + str(newItem['idNum']) +  ">" + newItem['name'] + "</a><br />"
         return loot
+
+@app.route('/item/<int:id>')
+def itemPage(id):
+    cur = g.db.execute('select name, description, type, quality, rarity, is_unique from items where id = ?', [str(id)])
+    row = cur.fetchone()
+    if row == None:
+        return "QQ u sneaky little bastard. there is nothing here for U.  !!!---"
+    item = dict(name=row[0], description=row[1], type=row[2], quality=row[3], rarity=row[4], is_unique=row[5])
+    return render_template('item.html', item=item)
 
 if __name__ == '__main__':
     app.run(debug=True)
