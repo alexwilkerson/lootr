@@ -58,61 +58,28 @@ def pickRarity():
         return 1
 
 def getItem(rarity):
-    cur = g.db.execute("SELECT id, name FROM items WHERE rarity=? ORDER BY RANDOM() LIMIT 1", [rarity])
+    cur = g.db.execute("SELECT id, name, quality FROM items WHERE rarity=? ORDER BY RANDOM() LIMIT 1", [rarity])
     row = cur.fetchone()
 
-    item = dict(idNum=row[0], name=row[1])
+    item = dict(idNum=row[0], name=row[1], quality=row[2])
 
     return item
-
-def sim(n):
-    total = n
-    totalnum = 0
-    rar1 = 0
-    rar2 = 0
-    rar3 = 0
-    rar4 = 0
-    rar5 = 0
-    rar6 = 0
-    rar7 = 0
-    while n > 0:
-        rar = pickRarity()
-        if rar == 1:
-            rar1 += 1
-        if rar == 2:
-            rar2 += 1
-        if rar == 3:
-            rar3 += 1
-        if rar == 4:
-            rar4 += 1
-        if rar == 5:
-            rar5 += 1
-        if rar == 6:
-            rar6 += 1
-        if rar == 7:
-            rar7 += 1
-        n -= 1
-        totalnum += 1
-    print "1 = {}/{}%\n2 = {}/{}%\n3 = {}/{}%\n4 = {}/{}%\n5 = {}/{}%\n6 = {}/{}%\n7 = {}/{}%".format(rar1, rar1/total*100,
-                                                                                                 rar2, rar2/total*100,
-                                                                                                 rar3, rar3/total*100,
-                                                                                                 rar4, rar4/total*100,
-                                                                                                 rar5, rar5/total*100,
-                                                                                                 rar6, rar6/total*100,
-                                                                                                 rar7, rar7/total*100)
-    print totalnum
 
 @app.route('/')
 def dropLoot():
     numItems = random.randint(0,2) + random.randint(0,2) + random.randint(0,1)
     if numItems == 0:
-        return "You open the chest to find...nothing."
+        loot = "...nothing."
+        return render_template("index.html", loot=loot)
     else:
-        loot = ""
+        loot = str(random.randint(0,30)) + " gold pieces.<br />"
         for i in range(numItems):
-            newItem = getItem(pickRarity())
-            loot += "<a href=/item/" + str(newItem['idNum']) +  ">" + newItem['name'] + "</a><br />"
-        return loot
+            newRarity = pickRarity()
+            newItem = getItem(newRarity)
+            newQuality = newItem["quality"]
+            qualityColor = {1:"saddlebrown",2:"lightseagreen",3:"steelblue",4:"rebeccapurple",5:"darkorange"}
+            loot += "<a href=/item/" + str(newItem['idNum']) +  " style='color: " + qualityColor[newQuality] + "'>" + newItem['name'] + "</a><br />"
+        return render_template("index.html", loot=loot)
 
 @app.route('/item/<int:id>')
 def itemPage(id):
@@ -124,4 +91,4 @@ def itemPage(id):
     return render_template('item.html', item=item)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
