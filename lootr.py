@@ -1,14 +1,35 @@
 from __future__ import division
 
 import random, sqlite3
+from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
+from contextlib import closing
 
-class Item(object):
+# configuration
+DATABASE = 'lootr.db'
+DEBUG = True
 
-    # initiliaze
-    def __init__(self, name, type, rarity):
-        self.name = name
-        self.type = type
-        self.rarity = rarity
+# rarity types
+UNCOMMON = 1
+COMMON = 2
+REMARKABLE = 3
+RARE = 4
+MYTHICAL = 5
+
+app = Flask(__name__)
+app.config.from_object(__name__)
+
+def connect_db():
+    return sqlite3.connect(app.config['DATABASE'])
+
+@app.before_request
+def before_request():
+    g.db = connect_db()
+
+@app.teardown_request
+def teardown_request(exception):
+    db = getattr(g, 'db', None)
+    if db is not None:
+        db.close()
 
 def pickRarity():
     rarityWeight1 = 250
@@ -37,12 +58,10 @@ def pickRarity():
         return 1
 
 def getItem(rarity):
-    with sqlite3.connect("lootr.db") as connection:
-        c = connection.cursor()
-        c.execute("SELECT name FROM items WHERE rarity=? ORDER BY RANDOM() LIMIT 1", [rarity])
-        row = c.fetchone()
+    cur = g.db.execute("SELECT name FROM items WHERE rarity=? ORDER BY RANDOM() LIMIT 1", [rarity])
+    row = cur.fetchone()
 
-        return row[0]
+    return row[0]
 
 def sim(n):
     total = n
@@ -81,12 +100,16 @@ def sim(n):
                                                                                                  rar7, rar7/total*100)
     print totalnum
 
+@app.route('/')
 def dropLoot():
     numItems = random.randint(0,2) + random.randint(0,2) + random.randint(0,1)
     if numItems == 0:
-        print "You open the chest to find...nothing."
+        return "You open the chest to find...nothing."
     else:
+        loot = ""
         for i in range(numItems):
-            print getItem(pickRarity())
+            loot += getItem(pickRarity()) + "<br />"
+        return loot
 
-dropLoot()
+if __name__ == '__main__':
+    app.run(debug=True)

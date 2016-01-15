@@ -1,0 +1,4 @@
+NAME,DESCRIPTION,TYPE,QUALITY (1-5),RARITY (1-7),IS_UNIQUE (0/1)
+Stone Frog,A tiny frog made of stone. It is incredibly lifelike. It is a soul's weight heavier than one might expect.,object,2,5,0
+Ancient Dagger,A dagger covered in rust. The blade is dull. It has indiscernible markings on it.,dagger,4,6,0
+Wooden Skull Mask,A mask made of broken wood. It looks as though it was used in a ritual or a party.,head,1,2,0
